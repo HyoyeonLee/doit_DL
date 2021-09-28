@@ -1,0 +1,21 @@
+'''
+****주피터 윈도우에서 실행 오류 해결방법***
+
+파이썬 폴더에서 Lib/site-packates/tornado/platform/asyncio.py 를 열고
+메인 import들 다 끝나면 다음을 입력하고 저장.
+'''
+import sys
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+'''    
+***주피터 폰트변경방법***
+사용자>.jupyter에 custom>custom.css 만든다음 내용 다음과 같이 입력
+.CodeMirror pre {font-family: Consolas;font-size: 14pt; line-height: 140%;}
+
+***주피터 테마 변경***
+1)python -m pip install jupyterthemes
+2)jt -l 가능한 테마목록
+3)jt -t gruvboxd -f iosevka -tf latosans
+4)jupyter notebook
+
